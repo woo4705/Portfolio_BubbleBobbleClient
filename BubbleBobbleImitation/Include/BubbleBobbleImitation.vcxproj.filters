@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="01.Core">
+      <UniqueIdentifier>{75d96900-17b9-4eab-adab-ddea0cc653cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="02.Scene">
+      <UniqueIdentifier>{f6d2771d-41f6-4af0-a406-26080730712c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object">
+      <UniqueIdentifier>{d96dbeb7-d88c-421a-a941-28af2c53f1f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object\01.Character">
+      <UniqueIdentifier>{3c9c0eba-6129-4ccf-b2f1-c6a7355c91e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object\02.Projectile">
+      <UniqueIdentifier>{8b4d5e3f-b584-419a-af60-6b9ef31cc6e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="03.Object\03.Etc">
+      <UniqueIdentifier>{192b4fd8-c6de-43cb-b119-542378b32df3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data Files">
+      <UniqueIdentifier>{cf7fe6a8-7bc2-4b7c-9666-9d46a64b5294}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="04.Network">
+      <UniqueIdentifier>{fc00f393-ba58-4a50-a3af-73a6503bc7eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BubbleBobbleImitation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Type.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="02Scene\Layer.h">
+      <Filter>02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="02Scene\Scene.h">
+      <Filter>02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="02Scene\TitleScene.h">
+      <Filter>02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\Obj.h">
+      <Filter>03.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\StaticObject.h">
+      <Filter>03.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>01.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="02Scene\GameStageScene.h">
+      <Filter>02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="01Core\Resource.h">
+      <Filter>01.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\DynamicObject.h">
+      <Filter>03.Object</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\PlayerCharacter.h">
+      <Filter>03.Object\01.Character</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\BubbleProjectile.h">
+      <Filter>03.Object\02.Projectile</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\EnemyCharacter.h">
+      <Filter>03.Object\01.Character</Filter>
+    </ClInclude>
+    <ClInclude Include="GameCommon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\DyingEnemy.h">
+      <Filter>03.Object\01.Character</Filter>
+    </ClInclude>
+    <ClInclude Include="03Object\Item.h">
+      <Filter>03.Object\03.Etc</Filter>
+    </ClInclude>
+    <ClInclude Include="01Core\FileManager.h">
+      <Filter>01.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFile\StageData.proto">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFile\StageData.pb.h">
+      <Filter>Data Files</Filter>
+    </ClInclude>
+    <ClInclude Include="04Network\PacketManager.h">
+      <Filter>04.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="04Network\PacketDefine.h">
+      <Filter>04.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="04Network\TCPNetwork.h">
+      <Filter>04.Network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BubbleBobbleImitation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="02Scene\Layer.cpp">
+      <Filter>02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="02Scene\Scene.cpp">
+      <Filter>02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="02Scene\TitleScene.cpp">
+      <Filter>02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\Obj.cpp">
+      <Filter>03.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\StaticObject.cpp">
+      <Filter>03.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>01.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="02Scene\GameStageScene.cpp">
+      <Filter>02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="01Core\Resource.cpp">
+      <Filter>01.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\DynamicObject.cpp">
+      <Filter>03.Object</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\PlayerCharacter.cpp">
+      <Filter>03.Object\01.Character</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\BubbleProjectile.cpp">
+      <Filter>03.Object\02.Projectile</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\EnemyCharacter.cpp">
+      <Filter>03.Object\01.Character</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\DyingEnemy.cpp">
+      <Filter>03.Object\01.Character</Filter>
+    </ClCompile>
+    <ClCompile Include="03Object\Item.cpp">
+      <Filter>03.Object\03.Etc</Filter>
+    </ClCompile>
+    <ClCompile Include="01Core\FileManager.cpp">
+      <Filter>01.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="DataFile\StageData.pb.cc">
+      <Filter>Data Files</Filter>
+    </ClCompile>
+    <ClCompile Include="04Network\PacketManager.cpp">
+      <Filter>04.Network</Filter>
+    </ClCompile>
+    <ClCompile Include="04Network\TCPNetwork.cpp">
+      <Filter>04.Network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="BubbleBobbleImitation.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="BubbleBobbleImitation.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>

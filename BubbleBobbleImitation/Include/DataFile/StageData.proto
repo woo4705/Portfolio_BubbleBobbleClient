@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+message WholeStageData{
+	int32 stage_level=1;
+
+	message MapLine{
+		repeated int32 block = 1; 
+	}
+	repeated MapLine Map = 2;
+
+	message Monster{
+		int32 Type = 5;
+		int32 startXPos = 6;
+		int32 startYPos = 7;
+		repeated  int32 Commands = 8;
+	}
+
+	repeated Monster Monsters = 9;
+
+}
