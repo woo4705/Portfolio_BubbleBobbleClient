@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+message PacketHeader{
+	int32 packetID=1;
+}
+
+message GameStartRequestPacket{
+	PacketHeader packetHeader=1;
+}
+
+message GameStartResultPacket{
+	PacketHeader packetHeader=1;
+}
+
+message GameStartNotifyPacket{
+	PacketHeader packetHeader=1;
+	int32 PlayerID=2;
+}
+
+
+message ObjectEventRecord{
+	enum EventType{
+		Move_UP =0;
+		Move_Down =1;
+		Move_Left =2;
+		Move_Right =3;
+		Die = 4;
+		FireAttack = 5;
+		Captured = 6;
+	}
+
+	EventType eventTypeCode=1;
+	float eventOccuredTime=2;
+}
+
+message GameSyncRequestPacket{
+	PacketHeader packetHeader=1;
+	int32 playerID=2;
+	repeated ObjectEventRecord eventRecordList=4;
+}
+
+
+message ObjectSyncData{
+	int32 objectID = 1;
+	float xPos=2;
+	float yPos=3;
+	repeated ObjectEventRecord eventRecordList= 4;
+}
+
+
+message WorldSyncPacket{
+	PacketHeader packetHeader=1;
+	repeated ObjectSyncData objSyncDataList= 2;
+}

@@ -1,7 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "../01Core/FileManager.h"
-#include "../03Object/PlayerCharacter.h"
+#include "../01Core/PlayerController.h"
 #include "../03Object/EnemyCharacter.h"
 #define TILE_SIZE 32
 
@@ -27,14 +27,16 @@ public:
 	GameStageScene();
 	~GameStageScene();
 
-	list<EnemyCharacter*> enemiesInStage;
-	PlayerCharacter *player; 
+	list<EnemyCharacter*> m_enemiesInStage;
+	list<PlayerCharacter*>m_playersInStage;
 	WholeStageData* StageData;
+	PlayerController* Controller;
+
 	void initializeLevel(int lv);
 	void SetTileDictionary();
 	void SetTileMap(string map_name);
 	void SetEnemyCharacters();
-	void SetPlayerCharacter();
+	void SetPlayerCharacter(INT16 playerID);
 	void AddMonster();
 	
 

@@ -27,11 +27,11 @@ protected:
 	string img_id;
 	short object_type;
 
-	float x_pos, y_pos, z_order;
+	float x_pos=0, y_pos=0, z_order=0;
 	int width=10, height=10;
 	int radius=0;
 
-	bool animated, horizontal_reversed = false;
+	bool animated = false, horizontal_reversed = false;
 	int frame_counter =0;
 	int frame_num= 0;
 	float acc_frame_time=0, time_per_frame=0;

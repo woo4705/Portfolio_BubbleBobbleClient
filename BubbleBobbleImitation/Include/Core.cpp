@@ -3,7 +3,7 @@
 #include "02Scene\TitleScene.h"
 #include "02Scene\GameStageScene.h"
 #include "04Network\TCPNetwork.h"
-
+using namespace Network;
 CCore::CCore()
 {
 	
@@ -114,7 +114,8 @@ LRESULT CCore::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		SetBkMode(textDC, TRANSPARENT);
 		SetTextColor(textDC, RGB(0, 255, 0));
 
-		int p1_score = GameStageScene::GetInst()->player->GetScore();
+		//int p1_score = GameStageScene::GetInst()->player->GetScore();
+		int p1_score = 0;
 		wchar_t buffer[8];
 
 		wsprintfW(buffer, L"%d", p1_score);
@@ -206,6 +207,11 @@ void CCore::ExecuteGameLoop()
 	QueryPerformanceCounter(&timeEnd);
 	frameTime = (float)(timeEnd.QuadPart - timeStart.QuadPart) / ((float)timeFreq.QuadPart);
 	timeStart = timeEnd;
+
+	to_wstring(frameTime);
+	OutputDebugString(to_wstring(frameTime).c_str());
+	OutputDebugString(L"\n");
+	
 
 	time_stack = 0;
 	switch (currentScene)

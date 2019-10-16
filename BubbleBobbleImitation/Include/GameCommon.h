@@ -1,7 +1,6 @@
 #pragma once
 #define GAME_WINDOW_WIDTH 1200
 #define GAME_WINDOW_HEIGHT 768
-
 enum  Scene_enum
 {
 	Title_Scene,
@@ -67,5 +66,15 @@ public:
 	char* playerID;
 	PlayerCharacterType characterType;
 };
+
+
+enum class PlayerInputType: char {
+	None='N',
+	Jump='W',
+	Left = 'A',
+	Right = 'D',
+	Attack = ' ',
+};
+
 
 //float time_scale = 0.1f;

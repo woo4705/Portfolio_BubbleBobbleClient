@@ -20,7 +20,7 @@ void CObj::SetRadius(int r) {
 }
 
 void CObj::Render(HDC back_hDC) {
-	OutputDebugString(L"Rendering\n");
+	//OutputDebugString(L"Rendering\n");
 
 	HDC hCompatibleDC = CreateCompatibleDC(back_hDC);
 	HBITMAP hOldBitmap = (HBITMAP)SelectObject(hCompatibleDC, resource_Inst->GetResourceById(img_id));

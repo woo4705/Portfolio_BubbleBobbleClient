@@ -178,9 +178,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="01Core\FileManager.h" />
+    <ClInclude Include="01Core\PlayerController.h" />
     <ClInclude Include="01Core\Resource.h" />
     <ClInclude Include="02Scene\GameStageScene.h" />
     <ClInclude Include="02Scene\Layer.h" />
+    <ClInclude Include="02Scene\LobbyScene.h" />
     <ClInclude Include="02Scene\Scene.h" />
     <ClInclude Include="02Scene\TitleScene.h" />
     <ClInclude Include="03Object\DyingEnemy.h" />
@@ -191,8 +193,9 @@
     <ClInclude Include="03Object\PlayerCharacter.h" />
     <ClInclude Include="03Object\BubbleProjectile.h" />
     <ClInclude Include="03Object\StaticObject.h" />
-    <ClInclude Include="04Network\PacketDefine.h" />
+    <ClInclude Include="04Network\PacketDefine.pb.h" />
     <ClInclude Include="04Network\PacketManager.h" />
+    <ClInclude Include="04Network\SpinLock.h" />
     <ClInclude Include="04Network\TCPNetwork.h" />
     <ClInclude Include="BubbleBobbleImitation.h" />
     <ClInclude Include="Core.h" />
@@ -211,6 +214,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="01Core\PlayerController.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="01Core\Resource.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -238,6 +244,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="02Scene\LobbyScene.cpp" />
     <ClCompile Include="02Scene\Scene.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -298,6 +305,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="04Network\PacketDefine.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="04Network\PacketManager.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -325,6 +335,9 @@
   <ItemGroup>
     <Image Include="BubbleBobbleImitation.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="04Network\PacketDefine.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

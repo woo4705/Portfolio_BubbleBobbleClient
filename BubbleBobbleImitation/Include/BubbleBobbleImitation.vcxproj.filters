@@ -108,19 +108,28 @@
     <ClInclude Include="01Core\FileManager.h">
       <Filter>01.Core</Filter>
     </ClInclude>
-    <ClInclude Include="DataFile\StageData.proto">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="DataFile\StageData.pb.h">
       <Filter>Data Files</Filter>
     </ClInclude>
     <ClInclude Include="04Network\PacketManager.h">
       <Filter>04.Network</Filter>
     </ClInclude>
-    <ClInclude Include="04Network\PacketDefine.h">
+    <ClInclude Include="04Network\TCPNetwork.h">
       <Filter>04.Network</Filter>
     </ClInclude>
-    <ClInclude Include="04Network\TCPNetwork.h">
+    <ClInclude Include="04Network\SpinLock.h">
+      <Filter>04.Network</Filter>
+    </ClInclude>
+    <ClInclude Include="01Core\PlayerController.h">
+      <Filter>01.Core</Filter>
+    </ClInclude>
+    <ClInclude Include="DataFile\StageData.proto">
+      <Filter>Data Files</Filter>
+    </ClInclude>
+    <ClInclude Include="02Scene\LobbyScene.h">
+      <Filter>02.Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="04Network\PacketDefine.pb.h">
       <Filter>04.Network</Filter>
     </ClInclude>
   </ItemGroup>
@@ -185,6 +194,15 @@
     <ClCompile Include="04Network\TCPNetwork.cpp">
       <Filter>04.Network</Filter>
     </ClCompile>
+    <ClCompile Include="01Core\PlayerController.cpp">
+      <Filter>01.Core</Filter>
+    </ClCompile>
+    <ClCompile Include="02Scene\LobbyScene.cpp">
+      <Filter>02.Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="04Network\PacketDefine.pb.cc">
+      <Filter>04.Network</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BubbleBobbleImitation.rc">
@@ -198,5 +216,10 @@
     <Image Include="BubbleBobbleImitation.ico">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="04Network\PacketDefine.proto">
+      <Filter>04.Network</Filter>
+    </None>
   </ItemGroup>
 </Project>

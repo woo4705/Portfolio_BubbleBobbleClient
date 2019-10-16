@@ -19,7 +19,8 @@ GameStageScene::GameStageScene()
 	game_status = new CLayer(GameScene_LayerID::Game_status, 100); refLayer.push_back(game_status);
 
 	SetTileDictionary();
-
+	m_playersInStage = list<PlayerCharacter*>();
+	
 }
 
 
@@ -28,15 +29,19 @@ GameStageScene::~GameStageScene()
 }
 
 void GameStageScene::initializeLevel(int lv){
-
 	//배경 그리기
 	StaticObject* bg = new StaticObject(0,0,0,false,"InGame_bg");
+	Controller = PlayerController::GetInst();
+
 	bg->SetSize(GAME_WINDOW_WIDTH, GAME_WINDOW_HEIGHT);
 	background->static_obj_list.push_back(bg);
+	SetPlayerCharacter(0);
+	
 	StageData = new WholeStageData();
 	SetTileMap("../include/DataFile/Stage01.dat");
-	SetPlayerCharacter();
+	
 	SetEnemyCharacters();
+	Controller->Init(m_playersInStage.front());
 }
 
 void GameStageScene::SetTileDictionary()
@@ -105,10 +110,10 @@ void GameStageScene::SetEnemyCharacters()
 		for (int j = 0; j < cmd_cnt; j++) {
 			enemy->commandList.push_back(monster->commands(i));
 		}
-		enemiesInStage.push_back(enemy);
+		m_enemiesInStage.push_back(enemy);
 	}
 
-	for (EnemyCharacter* eme : enemiesInStage) {
+	for (EnemyCharacter* eme : m_enemiesInStage) {
 		enemy_layer->addDynamicObj(eme);
 
 	}
@@ -121,19 +126,24 @@ void GameStageScene::SetEnemyCharacters()
 
 
 
-void GameStageScene::SetPlayerCharacter()
+void GameStageScene::SetPlayerCharacter(INT16 playerID)
 {
 	//플레이어 배치
 	string player_img_id = "1st_player";
-	player = new PlayerCharacter(player_img_id, true, 1); //이후 2번째 플레이어도 생각하기
+	m_playersInStage.push_back( new PlayerCharacter(player_img_id, true, 1)); //이후 2번째 플레이어도 생각하기
+	PlayerCharacter* player = m_playersInStage.back();
 	player->SetPosition(500, 500);
 	player->SetSize(48, 48);
-
+	player->SetPlayerID(playerID);
 	player_layer->addDynamicObj(player);
 	player_layer->collision_interact_layer_list.push_back(enemy_layer);
 	player_layer->collision_interact_layer_list.push_back(item);
 	player_layer->collision_interact_layer_list.push_back(player_projectile);
 	player_layer->collision_interact_layer_list.push_back(enemy_projectile);
+
+	//임시로 Controller설정. 실제로는 id에 맞는 플레이어에게 컨트롤러를 부착한다
+
+	
 }
 
 void GameStageScene::AddMonster()
@@ -142,39 +152,6 @@ void GameStageScene::AddMonster()
 
 	//몬스터 배치
 	string monster_img_id = "zen_chan_walk";
-	/*
-
-	// ====================================================================================
-	EnemyCharacter* monster = new EnemyCharacter((int)MonsterType::Zen_Chan, 1); //이후 2번째 플레이어도 생각하기
-	monster->SetPosition(300, 300);
-	monster->SetSize(48, 48);
-	monster->setVelocity(Velocity(200.f, 0.f));
-	monster->SetAnimationInfo(4, 0.1f);
-	monster->commandList.push_back(pair<int, int>((int)EnemyAICommand::Move_Right, 50));
-	monster->commandList.push_back(pair<int, int>((int)EnemyAICommand::Jump, 1));
-	monster->commandList.push_back(pair<int, int>((int)EnemyAICommand::Jump, 1));
-	monster->commandList.push_back(pair<int, int>((int)EnemyAICommand::Jump, 1));
-	monster->commandList.push_back(pair<int, int>((int)EnemyAICommand::Move_Left, 26));
-
-	enemy_layer->addDynamicObj(monster);
-	enemy_layer->collision_interact_layer_list.push_back(player_projectile);
-
-	//===========================================================================================
-	EnemyCharacter* monster2 = new EnemyCharacter((int)MonsterType::Zen_Chan, 1); //이후 2번째 플레이어도 생각하기
-	monster2->SetPosition(500, 300);
-	monster2->SetSize(48, 48);
-	monster2->setVelocity(Velocity(200.f, 0.f));
-	monster2->SetAnimationInfo(4, 0.1f);
-	monster2->commandList.push_back(pair<int, int>((int)EnemyAICommand::Move_Left, 50));
-	monster2->commandList.push_back(pair<int, int>((int)EnemyAICommand::Jump, 1));
-	monster2->commandList.push_back(pair<int, int>((int)EnemyAICommand::Jump, 1));
-	monster2->commandList.push_back(pair<int, int>((int)EnemyAICommand::Jump, 1));
-	monster2->commandList.push_back(pair<int, int>((int)EnemyAICommand::Move_Right, 26));
-
-	enemy_layer->addDynamicObj(monster2);
-	enemy_layer->collision_interact_layer_list.push_back(player_projectile);
-	*/
-
 	
 	
 }
@@ -264,7 +241,8 @@ void GameStageScene::Update(float frameTime) {
 
 void GameStageScene::Input(float frameTime)
 {
-	player->Input(frameTime);
+	//player->Input(frameTime);
+	Controller->Input(frameTime);
 }
 
 int GameStageScene::GetTileInfo(int x, int y)

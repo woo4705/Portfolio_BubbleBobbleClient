@@ -11,11 +11,26 @@ public:
 	void Update(float frameTime);
 	virtual void Collision(int collision_layer_id, CObj* collide_obj);
 	
+	void SetHorizontalReversed(bool val) {
+		horizontal_reversed = val;
+	}
 
+	void AddAccFrameTime(float frameTime);
+	void DoJump();
+	bool CheckVaildMove(int nextXpos, int nextYpos);
+	bool IsJumpable();
+
+	void SetPlayerID(INT16 id) {
+		this->m_characterID = id;
+	}
+
+	INT16 GetPlayerID() {
+		return m_characterID;
+	}
 
 private:
-	bool player_flag; //1P면 1, 2P면 0. 각 플레이어는 하나만 가능. 중복하면 못하게
 	int player_score = 0;
+	INT16 m_characterID = 0; //플레이어를 구분하는 고유의 값
 
 public:
 	int GetScore() { return player_score; }

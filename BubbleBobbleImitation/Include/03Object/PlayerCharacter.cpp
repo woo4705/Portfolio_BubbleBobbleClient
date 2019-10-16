@@ -27,6 +27,13 @@ PlayerCharacter::~PlayerCharacter()
 {
 }
 
+
+/*
+이전에는 클라이언트에서 입력하면 이동처리를 했지만,
+수정후에는 서버에서 입력패킷을 보내고 처리함
+
+*/
+
 void PlayerCharacter::Input(float frameTime)
 {
 	if (GetAsyncKeyState('W') & 0x0001) {
@@ -44,6 +51,7 @@ void PlayerCharacter::Input(float frameTime)
 		for (int i = 0; i <= height / TILE_SIZE; i++) {
 			if (GameStageScene::GetInst()->GetTileInfo((int)x_pos -1, (int)(y_pos + i*TILE_SIZE)) != 0 ) return;
 		}
+
 		Move(Move_Direction::Left, Velocity(200.f*frameTime, 0));
 
 	}
@@ -83,7 +91,6 @@ void PlayerCharacter::Input(float frameTime)
 		}		
 	}
 }
-
 
 
 void PlayerCharacter::Update(float frameTime) {
@@ -151,4 +158,39 @@ void PlayerCharacter::Collision(int collision_layer_id, CObj * collide_obj) {
 		}
 	}
 
+}
+
+void PlayerCharacter::AddAccFrameTime(float frameTime)
+{
+	acc_frame_time += frameTime;
+	if (acc_frame_time >= time_per_frame) {
+		UpdateFrame();
+		acc_frame_time = 0;
+	}
+	
+}
+
+void PlayerCharacter::DoJump()
+{
+	jump_remain_distance = 150.f;
+	isFalling = true;
+}
+
+bool PlayerCharacter::CheckVaildMove(int nextXpos, int nextYpos)
+{
+	for (int i = 0; i <= height / TILE_SIZE; i++) {
+		if (GameStageScene::GetInst()->GetTileInfo(nextXpos, (int)(nextYpos + i * TILE_SIZE)) != 0) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool PlayerCharacter::IsJumpable()
+{
+	if (isFalling || jump_remain_distance >= 0.01f) {
+		return false;
+	}
+	return true;
 }
